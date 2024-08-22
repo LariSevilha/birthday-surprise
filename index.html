@@ -32,7 +32,6 @@
         body {
             background-color: #392620;
             font-family: 'Cursive', sans-serif; /* Fonte romântica */
-            overflow: hidden; /* Para evitar rolagem devido aos corações */
         }
 
         .description {
@@ -69,12 +68,14 @@
             }
         }
 
+
         .heart {
             position: absolute;
             width: 20px;
             height: 20px;
             background-color: red;
             transform: rotate(-45deg);
+            max-height: 100vh;
             animation: float 5s infinite;
         }
 
