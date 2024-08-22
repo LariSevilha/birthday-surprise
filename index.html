@@ -7,6 +7,58 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="index.css">
     <title>Document</title>
+    <style>
+        .carousel-caption {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .carousel-inner img {
+            border-radius: 15px;
+        }
+
+        .carousel-caption h5, .carousel-caption p {
+            color: white;
+            margin: 0;
+        }
+
+        .carousel-custom {
+            width: 50%;
+            height: 70vh; /* Aumenta a altura do card */
+        }
+
+        body {
+            background-color: rgb(8, 8, 112);
+            font-family: 'Cursive', sans-serif; /* Fonte romântica */
+        }
+
+        .description {
+            color: white;
+            text-align: center;
+            font-family: 'Cursive', sans-serif; /* Fonte romântica */
+        }
+
+        .description h5 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .description p {
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .carousel-custom {
+                width: 90%; 
+                height: 80vh; /* Aumenta a altura do card em dispositivos móveis */
+            }
+
+            .minutes-seconds {
+                display: block;  
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="d-flex justify-content-center align-items-center vh-100 flex-column">
@@ -57,7 +109,7 @@
             const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-            return `${years} anos, ${months} meses, ${days} dias, ${hours} horas, <span class="minutes-seconds">${minutes} minutos`;
+            return `${years} anos, ${months} meses, ${days} dias, ${hours} horas, <span class="minutes-seconds">${minutes} minutos e ${seconds} segundos</span>`;
         }
 
         document.getElementById('timeTogether').innerHTML = calculateTimeTogether('2021-12-22');
