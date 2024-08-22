@@ -39,6 +39,8 @@
         <div class="text-center description">
             <h5>Juntas</h5>
             <p id="timeTogether"></p>
+            <hr>
+            <p>Você é a razão do meu sorriso diário. Te amo! </p>
         </div>
     </div>
 
@@ -55,10 +57,10 @@
             const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-            return `${years} anos, ${months} meses, ${days} dias, ${hours} horas, ${minutes} minutos e ${seconds} segundos`;
+            return `${years} anos, ${months} meses, ${days} dias, ${hours} horas, <span class="minutes-seconds">${minutes} minutos e ${seconds} segundos</span>`;
         }
 
-        document.getElementById('timeTogether').innerText = calculateTimeTogether('2021-12-22');
+        document.getElementById('timeTogether').innerHTML = calculateTimeTogether('2021-12-22');
     </script>
 </body>
 </html>
