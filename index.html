@@ -108,6 +108,16 @@
                 opacity: 0;
             }
         }
+        #playButton {
+            background-color: #5c3a2a; /* Marrom */
+            border-color: #5c3a2a; /* Marrom */
+            color: white;
+        }
+
+        #playButton:hover {
+            background-color: #4e2f22; /* Marrom mais escuro para hover */
+            border-color: #4e2f22; /* Marrom mais escuro para hover */
+        }
     </style>
 </head>
 <body>
@@ -145,6 +155,7 @@
             <p>Você é a razão do meu sorriso diário.<br> Obrigada por ser doce igual uma cerveja amanteigada, <br> e de me trazer alegria igual uma partida de quadribol! </p>
             <p>Eu te amo!!</p>
         </div>
+        <button id="playButton" class="btn btn-primary d-none">Clique para tocar a música</button>
     </div>
 
     <div id="hearts-container"></div>
@@ -190,6 +201,13 @@
             const audio = document.getElementById('background-audio');
             audio.play().catch(error => {
                 console.error('Erro ao tentar reproduzir o áudio:', error);
+                const playButton = document.getElementById('playButton');
+                playButton.classList.remove('d-none');
+                playButton.addEventListener('click', () => {
+                    audio.play().catch(error => {
+                        console.error('Erro ao tentar reproduzir o áudio manualmente:', error);
+                    });
+                });
             });
         });
     </script>
