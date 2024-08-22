@@ -21,3 +21,8 @@ body{
 .description{
     color: white;
 }
+@media (max-width: 768px) {
+    .carousel-custom {
+        width: 90%; 
+    }
+}
