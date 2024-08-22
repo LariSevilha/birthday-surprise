@@ -148,6 +148,7 @@
     </div>
 
     <div id="hearts-container"></div>
+    <audio id="background-audio" src="musica.mp3" autoplay loop></audio>
 
     <script>
         function calculateTimeTogether(startDate) {
@@ -184,6 +185,13 @@
         }
 
         setInterval(createHeart, 300);
+
+        window.addEventListener('load', () => {
+            const audio = document.getElementById('background-audio');
+            audio.play().catch(error => {
+                console.error('Erro ao tentar reproduzir o áudio:', error);
+            });
+        });
     </script>
 </body>
 </html>
