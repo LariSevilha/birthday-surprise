@@ -26,6 +26,7 @@
         .carousel-custom {
             width: 50%;
             height: 70vh; /* Aumenta a altura do card */
+            margin-bottom: 0; /* Remove a margem inferior */
         }
 
         body {
@@ -62,7 +63,7 @@
 </head>
 <body>
     <div class="d-flex justify-content-center align-items-center vh-100 flex-column">
-        <div id="carouselExampleIndicators" class="carousel slide carousel-custom mb-3" data-bs-ride="carousel">
+        <div id="carouselExampleIndicators" class="carousel slide carousel-custom" data-bs-ride="carousel">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -88,7 +89,7 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
-        <div class="text-center description">
+        <div class="text-center description mt-3">
             <h5>Juntas</h5>
             <p id="timeTogether"></p>
             <hr>
