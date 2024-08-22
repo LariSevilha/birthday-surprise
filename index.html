@@ -32,6 +32,7 @@
         body {
             background-color: rgb(8, 8, 112);
             font-family: 'Cursive', sans-serif; /* Fonte romântica */
+            overflow: hidden; /* Para evitar rolagem devido aos corações */
         }
 
         .description {
@@ -61,6 +62,46 @@
 
             .minutes-seconds {
                 display: block;  
+            }
+        }
+
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            transform: rotate(-45deg);
+            animation: float 5s infinite;
+        }
+
+        .heart::before,
+        .heart::after {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            border-radius: 50%;
+        }
+
+        .heart::before {
+            top: -10px;
+            left: 0;
+        }
+
+        .heart::after {
+            left: 10px;
+            top: 0;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(-45deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(-45deg);
+                opacity: 0;
             }
         }
     </style>
@@ -97,10 +138,12 @@
             <h5>Juntas</h5>
             <p id="timeTogether"></p>
             <hr>
-            <p>Você é a razão do meu sorriso diário. </p>
-            <p>Te amo!!</p>
+            <p>Você é a razão do meu sorriso diário.<br> Obrigada por ser doce igual uma cerveja amanteigada, <br> e de me trazer alegria igual uma partida de quadribol! </p>
+            <p>Eu te amo!!</p>
         </div>
     </div>
+
+    <div id="hearts-container"></div>
 
     <script>
         function calculateTimeTogether(startDate) {
@@ -112,13 +155,31 @@
             const months = Math.floor((diff % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30));
             const days = Math.floor((diff % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
             const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((diff % (1000 * 60)) / 1000 * 60);
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
             return `${years} anos, ${months} meses, ${days} dias, ${hours} horas, <span class="minutes-seconds">${minutes} minutos e ${seconds} segundos</span>`;
         }
 
-        document.getElementById('timeTogether').innerHTML = calculateTimeTogether('2021-12-22');
+        function updateTimeTogether() {
+            document.getElementById('timeTogether').innerHTML = calculateTimeTogether('2021-12-22');
+        }
+
+        setInterval(updateTimeTogether, 1000);
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 2 + 3 + 's';
+            document.getElementById('hearts-container').appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+
+        setInterval(createHeart, 300);
     </script>
 </body>
 </html>
