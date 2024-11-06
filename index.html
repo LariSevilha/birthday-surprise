@@ -32,13 +32,15 @@
         body {
             background-color: #392620;
             font-family: 'Cursive', sans-serif; /* Fonte romântica */
+            margin: 0;
+            padding: 0;
         }
 
         .description {
             color: white;
             text-align: center;
             font-family: 'Cursive'; /* Fonte romântica */
-            
+            margin: 20px; /* Adiciona margem para evitar que elementos se escondam */
         }
 
         .description h5 {
@@ -50,7 +52,6 @@
             font-size: 1.2rem;
             font-family: 'Cursive'; /* Fonte romântica */
             font-size: 16px;
-            
         }
 
         @media (max-width: 768px) {
@@ -67,7 +68,6 @@
                 display: block;  
             }
         }
-
 
         .heart {
             position: absolute;
@@ -109,6 +109,7 @@
                 opacity: 0;
             }
         }
+
         #playButton {
             background-color: #5c3a2a; /* Marrom */
             border-color: #5c3a2a; /* Marrom */
